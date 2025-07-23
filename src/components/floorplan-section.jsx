@@ -1,0 +1,42 @@
+import React from "react";
+import floorPlanImg from "../assets/mulberry-heights-floor-plan.jpg";
+
+
+export default function FloorPlanSection() {
+  const handleImageClick = () => {
+    // You can implement image popup functionality here
+    // For now, it will just open the image in a new tab
+    window.open("assets/img/mulberry-heights-floor-plan.jpg", "_blank");
+  };
+
+  return (
+    <section id="floorplan" className="block bg-gray-100 py-12 scroll-mt-20 ">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-center text-xl font-medium mb-8 text-gray-800">
+          Floor Plan
+        </h2>
+
+        <div className="w-full">
+          <div className="property-wrapper">
+            <div className="property">
+              <button
+                onClick={handleImageClick}
+                className="image-popup block w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg overflow-hidden hover:opacity-90 transition-opacity duration-300"
+              >
+                <div className="image-wrapper">
+                  <div className="text-center">
+                    <img
+                      src={floorPlanImg}
+                      alt="Mulberry Heights Floor Plan"
+                      className="mx-auto max-w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
