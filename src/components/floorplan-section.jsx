@@ -1,5 +1,7 @@
 import React from "react";
 import floorPlanImg from "../assets/mulberry-heights-floor-plan.jpg";
+import floorPlanImg1 from "../assets/floor1.png";
+import floorPlanImg2 from "../assets/floor2.png";
 
 
 export default function FloorPlanSection() {
@@ -26,7 +28,27 @@ export default function FloorPlanSection() {
                 <div className="image-wrapper">
                   <div className="text-center">
                     <img
-                      src={floorPlanImg}
+                      src={floorPlanImg1}
+                      alt="Mulberry Heights Floor Plan"
+                      className="mx-auto max-w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="w-full">
+          <div className="property-wrapper">
+            <div className="property">
+              <button
+                onClick={handleImageClick}
+                className="image-popup block w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg overflow-hidden hover:opacity-90 transition-opacity duration-300"
+              >
+                <div className="image-wrapper">
+                  <div className="text-center">
+                    <img
+                      src={floorPlanImg2}
                       alt="Mulberry Heights Floor Plan"
                       className="mx-auto max-w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     />
