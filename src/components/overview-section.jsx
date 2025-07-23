@@ -17,18 +17,18 @@ export default function OverviewSection() {
         {/* Content Text */}
         <div className="max-w-5xl mx-auto">
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed text-justify font-light tracking-wide">
-            Mulberry Heights offers the most open and refined lifestyle that one
-            can wish for. At Mulberry Heights, we have created a luxurious haven
-            giving you the choice of 2, 3 and 4 BHK apartments, bedecked with
-            the most modern and handpicked features. Spread over an area of
-            21.45 acres, comprising enigmatic towers with state-of-the-art
-            facilities and amenities that meet global standards, Mulberry
-            Heights presents the perfect picture of your life amidst a vast
-            green landscape, with 80% open spaces, this Golf view facing project
-            has everything that a holistic lifestyle requires. A peaceful
-            experience of a habitat to security that lets you live without any
-            worry. Mulberry Heights is a perfect sanctum for those who are
-            looking for a wholesome life experience.
+            Mulberry Heights is envisioned as a future-ready residential community that combines modern living with 
+            serene surroundings, offering a perfect blend of comfort, luxury, and sustainability. Designed with long
+            -term livability in mind, the township features thoughtfully planned residential towers surrounded by 
+            expansive green spaces, landscaped gardens, and well-laid internal roads. Over the years, Mulberry 
+            Heights is set to evolve into a self-sufficient micro-township that caters to every aspect of urban
+             lifestyle—be it recreation, fitness, community living, or security. With state-of-the-art amenities 
+             such as a clubhouse, fitness zones, children's play areas, and walking tracks, the project ensures 
+             a holistic living experience for families across generations. The strategic location, likely in a
+              rapidly developing corridor, promises strong connectivity, appreciation in property value, and
+               accessibility to schools, healthcare, and commercial hubs. As urban living continues to grow
+                in complexity, Mulberry Heights offers a long-term vision of a peaceful, well-connected, and
+                 vibrant community where residents can thrive for years to come.
           </p>
         </div>
       </div>

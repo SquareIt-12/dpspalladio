@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
@@ -22,12 +21,7 @@ const slides = [
 ];
 
 const Banner = () => {
-  const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100); // Preload effect
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="relative w-full h-[90vh] overflow-hidden">
