@@ -1,3 +1,4 @@
+import { PhoneCall } from 'lucide-react'
 import './App.css'
 import EnquiryFormPopup from './components/enquiry-form'
 import FeaturesSection from './components/features'
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+    {/* Floating CTA Buttons */}
       <Header />
       <Banner />
       <OverviewSection  />
@@ -21,7 +23,7 @@ function App() {
       <FloorPlanSection />
       <GallerySection />
       <PricePlanSection />
-      <PaymentPlanSection />
+      {/* <PaymentPlanSection /> */}
       <ContactSection />
       <EnquiryFormPopup />
     </>
