@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "../assets/mlogo1.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reraHeight = 60; // Approximate height of RERA section
+      setIsScrolled(window.scrollY > reraHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navigationItems = [
     { name: "Home", href: "#" },
@@ -11,15 +22,31 @@ export default function Header() {
     { name: "Features", href: "#features" },
     { name: "Floor Plan", href: "#floorplan" },
     { name: "Gallery", href: "#gallery" },
-    { name: "Price Plan", href: "#priceplan" },
-    { name: "Payment Plan", href: "#paymentplan" },
+    { name: "Plans", href: "#priceplan" },
+    // { name: "Payment Plan", href: "#paymentplan" },
     { name: "Contact", href: "#contact" },
   ];
 
-
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100">
+      {/* RERA section - This will scroll with the page */}
+      <div className="bg-gray-800 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
+        <span className="lg:text-md md:text-md text-sm">Rera no: UPRERAAGT17933</span>
+        <a
+          href="tel:+918808698649"
+          className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full flex items-center gap-2"
+        >
+          <Phone size={16} />
+          <span>+91 8808698649</span>
+        </a>
+      </div>
+
+      {/* Fixed Header - Position changes based on scroll */}
+      <header
+        className={`fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100 transition-all duration-300 ${
+          isScrolled ? "top-0" : "top-15"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo - exact match to image */}
@@ -48,7 +75,7 @@ export default function Header() {
             </nav>
 
             {/* Contact Button - exact match */}
-            <div className="hidden lg:flex">
+            {/* <div className="hidden lg:flex">
               <a
                 href="tel:+918808698649"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 flex items-center space-x-2 shadow-sm"
@@ -56,7 +83,7 @@ export default function Header() {
                 <Phone size={16} />
                 <span>+91 8808698649</span>
               </a>
-            </div>
+            </div> */}
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
@@ -101,6 +128,13 @@ export default function Header() {
           )}
         </div>
       </header>
+
+      {/* Spacer div to account for the header height - adjusts based on scroll */}
+      <div
+        className={`transition-all duration-300 ${
+          isScrolled ? "h-16" : "h-26"
+        }`}
+      ></div>
     </>
   );
 }

@@ -18,17 +18,16 @@ function App() {
     <>
     {/* Floating CTA Buttons */}
       <div className="fixed bottom-4 left-4 flex flex-col gap-3 z-50">
-        {/* Call Button */}
         <a
-          href="tel:+918808698649" // Replace with your phone number
+          href="tel:+918808698649" 
           className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition duration-300"
         >
           <PhoneCall className="w-5 h-5" />
         </a>
         
-        {/* WhatsApp Button */}
+        
         <a
-          href="https://wa.me/918808698649" // Replace with your WhatsApp number
+          href="https://wa.me/918808698649" 
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition duration-300"
