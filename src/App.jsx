@@ -11,6 +11,7 @@ import Banner from './components/hero'
 import OverviewSection from './components/overview-section'
 import PricePlanSection from './components/priceplan-section'
 import { FaWhatsapp } from "react-icons/fa";
+import Footer from './components/footer-end'
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
       {/* <PaymentPlanSection /> */}
       <ContactSection />
       <EnquiryFormPopup />
+      <Footer />
     </>
   )
 }

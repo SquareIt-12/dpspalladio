@@ -1,15 +1,15 @@
 import React from "react";
 
-const Footer = () => {
-  return (
-    <>
-      <div className="bg-dark">
-        <div className="container mx-auto py-8 px-4">
-            
-        </div>
-      </div>
-    </>
-  );
-};
+export default function Footer() {
+  const year = new Date().getFullYear();
 
-export default Footer;
+  return (
+    <footer className="bg-gray-900 text-white py-4 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-sm">
+        <p className="text-center md:text-left">
+          © {year} Rishita Mulberry. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+}

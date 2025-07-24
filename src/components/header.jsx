@@ -8,7 +8,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const reraHeight = 60; // Approximate height of RERA section
+      const reraHeight = 10; // Approximate height of RERA section
       setIsScrolled(window.scrollY > reraHeight);
     };
 
@@ -47,7 +47,7 @@ export default function Header() {
           isScrolled ? "top-0" : "top-15"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl py-2 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo - exact match to image */}
             <div className="flex items-center">
