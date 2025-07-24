@@ -5,7 +5,10 @@ import price2 from "../assets/list.jpg";
 
 export default function PricePlanSection() {
   const handleImageClick = () => {
-    window.open(price, "_blank");
+    window.open(price1, "_blank");
+  };
+  const handleImageClickOne = () => {
+    window.open(price2, "_blank");
   };
 
   return (
@@ -34,7 +37,7 @@ export default function PricePlanSection() {
             {/* Second Image */}
             <div className="w-[48%]">
               <button
-                onClick={handleImageClick}
+                onClick={handleImageClickOne}
                 className="block w-full hover:outline-none hover:ring-2 hover:ring-blue-500 hover:ring-opacity-50 rounded-lg overflow-hidden transition-opacity duration-300"
               >
                 <img
