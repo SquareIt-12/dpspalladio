@@ -6,3 +6,6 @@ html {
 section {
   scroll-margin-top: 80px; /* Match your header height */
 }
+.Toastify__toast-container {
+  z-index: 9999 !important;
+}

@@ -31,7 +31,9 @@ export default function Header() {
     <>
       {/* RERA section - This will scroll with the page */}
       <div className="bg-gray-800 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
-        <span className="lg:text-md md:text-md text-sm">Rera no: UPRERAAGT17933</span>
+        <span className="lg:text-md md:text-md text-sm">
+          Rera no: UPRERAAGT17933
+        </span>
         <a
           href="tel:+918808698649"
           className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full flex items-center gap-2"

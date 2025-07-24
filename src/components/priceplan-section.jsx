@@ -2,6 +2,7 @@ import React from "react";
 // import price from "../assets/price.jpg";
 import price1 from "../assets/pay.jpg";
 import price2 from "../assets/list.jpg";
+import fullPdf from "../assets/ALL_IN_ONE_PRICELIST_APRIL2025.pdf"; // Path to the full PDF file
 
 export default function PricePlanSection() {
   const handleImageClick = () => {
@@ -10,12 +11,15 @@ export default function PricePlanSection() {
   const handleImageClickOne = () => {
     window.open(price2, "_blank");
   };
+   const handleViewAllClick = () => {
+     window.open(fullPdf, "_blank"); // ✅ Open PDF in new tab
+   };
 
   return (
     <section id="priceplan" className="block bg-gray-100 py-12 scroll-mt-20">
       <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-center text-xl font-medium mb-8 text-gray-800">
-          Price List And Payment Plans 
+          Price List And Payment Plans
         </h2>
 
         <div className="w-full">
@@ -46,7 +50,12 @@ export default function PricePlanSection() {
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
               </button>
-              <button className="p-3 bg-orange-500 text-white rounded-lg w-full cursor-pointer mt-3 hover:bg-orange-700 ">View All</button>
+              <button
+                onClick={handleViewAllClick}
+                className="p-3 bg-orange-500 text-white rounded-lg w-full cursor-pointer mt-3 hover:bg-orange-700 "
+              >
+                View All
+              </button>
             </div>
           </div>
         </div>
