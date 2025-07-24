@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import Logo from "../assets/logo.jpg";
+import Logo from "../assets/logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,7 +53,7 @@ export default function Header() {
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
                 {/* Building icon */}
-                <img src={Logo} alt="" className="w-[100%] h-[8vh]" />
+                <img src={Logo} alt="" className="w-[100%] h-[24vh]" />
               </div>
             </div>
 
