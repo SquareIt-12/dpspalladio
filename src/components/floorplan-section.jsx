@@ -2,12 +2,16 @@ import React from "react";
 import floorPlanImg1 from "../assets/floor1.png";
 import floorPlanImg2 from "../assets/floor2.png";
 
-
 export default function FloorPlanSection() {
   const handleImageClick = () => {
     // You can implement image popup functionality here
     // For now, it will just open the image in a new tab
-    window.open("assets/img/mulberry-heights-floor-plan.jpg", "_blank");
+    window.open(floorPlanImg1, "_blank");
+  };
+  const handleImageClickOne = () => {
+    // You can implement image popup functionality here
+    // For now, it will just open the image in a new tab
+    window.open(floorPlanImg2, "_blank");
   };
 
   return (
@@ -41,7 +45,7 @@ export default function FloorPlanSection() {
           <div className="property-wrapper">
             <div className="property">
               <button
-                onClick={handleImageClick}
+                onClick={handleImageClickOne}
                 className="image-popup block w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg overflow-hidden hover:opacity-90 transition-opacity duration-300"
               >
                 <div className="image-wrapper">
