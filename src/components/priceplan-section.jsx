@@ -30,6 +30,7 @@ export default function PricePlanSection() {
               >
                 <img
                   src={price1}
+                  loading="lazy"
                   alt="price-list-1"
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
@@ -44,6 +45,7 @@ export default function PricePlanSection() {
               >
                 <img
                   src={price2}
+                  loading="lazy"
                   alt="price-list-2"
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />

@@ -63,6 +63,7 @@ export default function FeaturesSection() {
               src={feature.imgSrc}
               alt={feature.imgAlt}
               className="mx-auto"
+              loading="lazy"
             />
           </div>
           <h4 className="text-center text-white text-lg font-medium mb-4">

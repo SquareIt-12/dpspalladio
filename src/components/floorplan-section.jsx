@@ -32,6 +32,7 @@ export default function FloorPlanSection() {
                   <div className="text-center">
                     <img
                       src={floorPlanImg1}
+                      loading="lazy"
                       alt="Mulberry Heights Floor Plan"
                       className="mx-auto max-w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     />
@@ -52,6 +53,7 @@ export default function FloorPlanSection() {
                   <div className="text-center">
                     <img
                       src={floorPlanImg2}
+                      loading="lazy"
                       alt="Mulberry Heights Floor Plan"
                       className="mx-auto max-w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     />

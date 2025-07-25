@@ -35,14 +35,16 @@ const Banner = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <img src={slide.image} className="w-full h-full object-cover" />
-            
+            <img
+              src={slide.image}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
 
       {/* Floating Animation Elements */}
-      
     </section>
   );
 };

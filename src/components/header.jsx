@@ -55,7 +55,12 @@ export default function Header() {
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
                 {/* Building icon */}
-                <img src={Logo} alt="" className="w-[100%] h-[24vh]" />
+                <img
+                  src={Logo}
+                  alt=""
+                  loading="lazy"
+                  className="w-[100%] h-[24vh]"
+                />
               </div>
             </div>
 
