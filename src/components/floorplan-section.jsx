@@ -1,5 +1,5 @@
 import React from "react";
-import floorPlanImg1 from "../assets/floor1.png";
+import floorPlanImg1 from "../assets/floor3.png";
 import floorPlanImg2 from "../assets/floor2.png";
 
 export default function FloorPlanSection() {
