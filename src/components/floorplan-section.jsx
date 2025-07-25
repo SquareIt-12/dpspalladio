@@ -1,6 +1,6 @@
 import React from "react";
-import floorPlanImg1 from "../assets/floor3.png";
-import floorPlanImg2 from "../assets/floor2.png";
+import floorPlanImg1 from "/images/floor3.png";
+import floorPlanImg2 from "/images/floor2.png";
 
 export default function FloorPlanSection() {
   const handleImageClick = () => {

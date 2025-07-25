@@ -2,20 +2,20 @@ import React, { useState } from "react";
 
 // Import images (adjust paths if different)
 
-import gall1 from "../assets/gall1.jpg";
-import gall2 from "../assets/gall2.jpg";
-import gall3 from "../assets/gall3.jpg";
-import gall4 from "../assets/gall4.jpg";
+import gall1 from "/images/gall1.jpg";
+import gall2 from "/images/gall2.jpg";
+import gall3 from "/images/gall3.jpg";
+import gall4 from "/images/gall4.jpg";
 
-import gall5 from "../assets/ris1.jpg";
-import gall6 from "../assets/ris2.jpg";
+import gall5 from "/images/ris1.jpg";
+import gall6 from "/images/ris2.jpg";
 
-import gall8 from "../assets/ris4.jpg";
+import gall8 from "/images/ris4.jpg";
 
-import gall9 from "../assets/ris5.jpg";
-import gall10 from "../assets/ris6.jpg";
-import gall11 from "../assets/ris7.jpg";
-import gall12 from "../assets/ris8.jpg";
+import gall9 from "/images/ris5.jpg";
+import gall10 from "/images/ris6.jpg";
+import gall11 from "/images/ris7.jpg";
+import gall12 from "/images/ris8.jpg";
 
 
 

@@ -1,8 +1,6 @@
-import React from "react";
-// import price from "../assets/price.jpg";
-import price1 from "../assets/pay.jpg";
-import price2 from "../assets/list.jpg";
-import fullPdf from "../assets/ALL_IN_ONE_PRICELIST_APRIL2025.pdf"; // Path to the full PDF file
+import price1 from "/images/pay.jpg";
+import price2 from "/images/list.jpg";
+import fullPdf from "/images/ALL_IN_ONE_PRICELIST_APRIL2025.pdf"; // Path to the full PDF file
 
 export default function PricePlanSection() {
   const handleImageClick = () => {
