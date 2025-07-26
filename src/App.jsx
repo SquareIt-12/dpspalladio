@@ -8,10 +8,8 @@ import GallerySection from "./components/gallery-section";
 import Header from "./components/header";
 import Banner from "./components/hero";
 import OverviewSection from "./components/overview-section";
-import PricePlanSection from "./components/priceplan-section";
 import { FaLongArrowAltUp, FaWhatsapp } from "react-icons/fa";
 import Footer from "./components/footer-end";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -48,7 +46,7 @@ function App() {
       <FeaturesSection />
       <FloorPlanSection />
       <GallerySection />
-      <PricePlanSection />
+      {/* <PricePlanSection /> */}
       <ContactSection />
       <EnquiryFormPopup />
       <Footer />
