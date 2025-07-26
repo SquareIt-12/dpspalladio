@@ -9,12 +9,18 @@ import Header from "./components/header";
 import Banner from "./components/hero";
 import OverviewSection from "./components/overview-section";
 import PricePlanSection from "./components/priceplan-section";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaLongArrowAltUp, FaWhatsapp } from "react-icons/fa";
 import Footer from "./components/footer-end";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top:0,
+      behavior: "smooth",
+    })
+  }
   return (
     <>
       {/* Floating CTA Buttons */}
@@ -47,6 +53,12 @@ function App() {
       <EnquiryFormPopup />
       <Footer />
       {/* <ToastContainer position="bottom-left" autoClose={3000} /> */}
+      <div className="lg:flex hidden fixed bottom-24 right-7 flex flex-col gap-3 z-50 bg-red-700 rounded-full p-3"
+      >
+        <button onClick={scrollToTop}>
+      <FaLongArrowAltUp color="white" className="w-6 h-6" />
+        </button>
+      </div>
     </>
   );
 }

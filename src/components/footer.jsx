@@ -13,8 +13,6 @@ const ContactSection = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -58,43 +56,31 @@ const ContactSection = () => {
     }
   };
 
-
   return (
     <section id="contact" className="bg-gray-900 text-white py-12 scroll-mt-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Address */}
-          <div className="lg:w-1/3 w-full">
-            <h3 className="text-xl font-bold mb-4">Address</h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5990.43345798907!2d81.00767049082496!3d26.782228974858402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x267a0ed6f239132c!2sRishita+Mulberry+Heights!5e0!3m2!1sen!2sin!4v1555399598278!5m2!1sen!2sin"
-              width="100%"
-              height="250"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              title="Map"
-            ></iframe>
-          </div>
-
+        <div className="flex flex-col lg:flex-row gap-9">
           {/* Contact Info */}
-          <div className="lg:w-1/3 w-full">
+          <div className="lg:w-1/3 w-full ">
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+
             <a
               href="tel:+918808698649"
-              className="mb-2 text-sm flex items-center"
+              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
             >
-              <Phone className="w-4 h-4 mr-2 text-blue-400" />
+              <Phone className="w-5 h-5 mr-2 text-blue-400" />
               +91 8808698649
             </a>
+
             <a
               href="mailto:mohanyadav8808@gmail.com"
-              className="mb-2 text-sm flex items-center"
+              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
             >
-              <Mail className="w-4 h-4 mr-2 text-blue-400" />
+              <Mail className="w-5 h-5 mr-2 text-blue-400" />
               mohanyadav8808@gmail.com
             </a>
-            <p className="text-sm flex items-start">
+
+            {/* <p className="text-sm flex items-start mb-6">
               <MapPin className="w-4 h-4 mr-2 mt-1 text-blue-400" />
               <span>
                 <strong>AMIT KUMAR NISHAD</strong>
@@ -107,7 +93,94 @@ const ContactSection = () => {
                 <br />
                 Lucknow - 226010
               </span>
-            </p>
+            </p> */}
+
+            <div className="text-sm p-4">
+              <h4 className="font-semibold mb-3 text-blue-400 flex items-center">
+                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                RERA Numbers
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-1:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ357829
+                  </div>
+                </div>
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-2:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ323529
+                  </div>
+                </div>
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-3:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ308470
+                  </div>
+                </div>
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-4:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ192087
+                  </div>
+                </div>
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-5:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ626431
+                  </div>
+                </div>
+                <div className="bg-gray-700 p-2 rounded">
+                  <div className="text-gray-300 font-medium text-xs mb-1">
+                    Phase-6:
+                  </div>
+                  <div className="text-blue-200 font-mono text-xs">
+                    UPRERAPRJ447396
+                  </div>
+                </div>
+              </div>
+              <div className="bg-blue-900/30 p-3 rounded border border-blue-400/30">
+                <div className="text-blue-300 font-semibold text-xs mb-1">
+                  Agent RERA:
+                </div>
+                <div className="text-blue-100 font-mono text-xs font-semibold">
+                  UPRERAAGT17933
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="lg:w-1/4 flex flex-col lg:items-center w-full">
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="flex flex-col gap-y-4">
+              <li className="hover:text-orange-500">
+                <a href="#overview">Overview</a>
+              </li>
+              <li className="hover:text-orange-500">
+                <a href="#features">Features</a>
+              </li>
+              <li className="hover:text-orange-500">
+                <a href="#floorplan">Floor Plan</a>
+              </li>
+              <li className="hover:text-orange-500">
+                <a href="#gallery">Gallery</a>
+              </li>
+              <li className="hover:text-orange-500">
+                <a href="#priceplan">Plans</a>
+              </li>
+            </ul>
           </div>
 
           {/* Contact Form */}

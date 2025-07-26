@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import Logo from "/images/logo.png";
+// import Logo from "/images/logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const reraHeight = 10; // Approximate height of RERA section
-      setIsScrolled(window.scrollY > reraHeight);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const reraHeight = 10; // Approximate height of RERA section
+  //     setIsScrolled(window.scrollY > reraHeight);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+  
 
   const navigationItems = [
     { name: "Home", href: "#" },
@@ -30,7 +31,7 @@ export default function Header() {
   return (
     <>
       {/* RERA section - This will scroll with the page */}
-      <div className="bg-gray-800 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
+      {/* <div className="bg-gray-800 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
         <span className="lg:text-md md:text-md text-sm">
           Rera no: UPRERAAGT17933
         </span>
@@ -41,28 +42,20 @@ export default function Header() {
           <Phone size={16} />
           <span>+91 8808698649</span>
         </a>
-      </div>
+      </div> */}
 
       {/* Fixed Header - Position changes based on scroll */}
-      <header
+      {/* <header
         className={`fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100 transition-all duration-300 ${
           isScrolled ? "top-0" : "top-15"
         }`}
+      > */}
+       <header
+        className="fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100 transition-all duration-300 top-0"
       >
         <div className="max-w-7xl py-2 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo - exact match to image */}
-            <div className="flex items-center">
-              <div className="flex items-center space-x-3">
-                {/* Building icon */}
-                <img
-                  src={Logo}
-                  alt=""
-                  loading="lazy"
-                  className="w-[100%] h-[24vh]"
-                />
-              </div>
-            </div>
+           
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
@@ -70,7 +63,7 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-200 ${
+                  className={`text-sm font-medium focus:text-orange-400 transition-colors duration-200 ${
                     item.active
                       ? "text-orange-500"
                       : "text-gray-600 hover:text-orange-500"
@@ -81,8 +74,9 @@ export default function Header() {
               ))}
             </nav>
 
+
             {/* Contact Button - exact match */}
-            {/* <div className="hidden lg:flex">
+            <div className="hidden lg:flex">
               <a
                 href="tel:+918808698649"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 flex items-center space-x-2 shadow-sm"
@@ -90,7 +84,7 @@ export default function Header() {
                 <Phone size={16} />
                 <span>+91 8808698649</span>
               </a>
-            </div> */}
+            </div>
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
@@ -136,12 +130,13 @@ export default function Header() {
         </div>
       </header>
 
+
       {/* Spacer div to account for the header height - adjusts based on scroll */}
-      <div
+      {/* <div
         className={`transition-all duration-300 ${
           isScrolled ? "h-16" : "h-26"
         }`}
-      ></div>
+      ></div> */}
     </>
   );
 }

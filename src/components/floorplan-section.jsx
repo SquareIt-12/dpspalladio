@@ -1,6 +1,8 @@
 import React from "react";
-import floorPlanImg1 from "/images/floor3.png";
-import floorPlanImg2 from "/images/floor2.png";
+import floorPlanImg1 from "/images/floor3.jpg";
+import floorPlanImg2 from "/images/floor2.jpg";
+import Mulberry from "/images/Mulberry-brochure.pdf";
+import Serenity from "/images/Serenity-brochure.pdf";
 
 export default function FloorPlanSection() {
   const handleImageClick = () => {
@@ -12,6 +14,12 @@ export default function FloorPlanSection() {
     // You can implement image popup functionality here
     // For now, it will just open the image in a new tab
     window.open(floorPlanImg2, "_blank");
+  };
+  const handleMulberry = () => {
+    window.open(Mulberry, "_blank");
+  };
+  const handleSerenity = () => {
+    window.open(Serenity, "_blank");
   };
 
   return (
@@ -62,6 +70,20 @@ export default function FloorPlanSection() {
               </button>
             </div>
           </div>
+        </div>
+        <div className="flex flex-col lg:flex-row lg:gap-x-28 justify-between">
+          <button
+            onClick={handleMulberry}
+            className="py-2 lg:p-3 bg-orange-500 lg:text-md md:text-md text-xs lg:w-full  text-white rounded-lg cursor-pointer mt-3 hover:bg-orange-700 "
+          >
+            Mulberry Heights Brochure
+          </button>
+          <button
+            onClick={handleSerenity}
+            className="py-2 lg:p-3 bg-orange-500 lg:text-md md:text-md text-xs text-white rounded-lg lg:w-full cursor-pointer mt-3 hover:bg-orange-700 "
+          >
+            Serenity Brochure
+          </button>
         </div>
       </div>
     </section>
