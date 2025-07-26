@@ -17,7 +17,7 @@ const TestimonialSection = () => {
       location: "Lucknow",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "/images/test4.jpg",
       testimonial:
         "Excellent service and beautiful property! The team was very professional and helped us find our dream home. The location is perfect with all amenities nearby.",
     },
@@ -25,10 +25,9 @@ const TestimonialSection = () => {
       id: 2,
       name: "Priya Sharma",
       designation: "Marketing Manager",
-      location: "Gomti Nagar",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+        "/images/test1.jpg",
       testimonial:
         "Amazing experience with Ganesham Adept! The property quality is outstanding and the customer service exceeded our expectations. Highly recommended for anyone looking for premium homes.",
     },
@@ -36,10 +35,9 @@ const TestimonialSection = () => {
       id: 3,
       name: "Amit Singh",
       designation: "Business Owner",
-      location: "Indira Nagar",
       rating: 4,
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+        "/images/test5.jpg",
       testimonial:
         "Great investment opportunity! The construction quality is top-notch and the location has excellent connectivity. The team was transparent throughout the process.",
     },
@@ -47,10 +45,9 @@ const TestimonialSection = () => {
       id: 4,
       name: "Sunita Gupta",
       designation: "Doctor",
-      location: "Hazratganj",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "/images/test2.jpg",
       testimonial:
         "Perfect home for our family! The amenities are fantastic and the neighborhood is very safe. The buying process was smooth and hassle-free.",
     },
@@ -58,10 +55,9 @@ const TestimonialSection = () => {
       id: 5,
       name: "Vikash Mishra",
       designation: "CA",
-      location: "Aliganj",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+        "/images/test6.jpg",
       testimonial:
         "Outstanding service from start to finish! The property exceeded our expectations and the team was always available to address our concerns. Best decision we made!",
     },
@@ -69,10 +65,9 @@ const TestimonialSection = () => {
       id: 6,
       name: "Neha Agarwal",
       designation: "Teacher",
-      location: "Mahanagar",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+        "/images/test3.jpg",
       testimonial:
         "Wonderful experience! The team was patient with all our queries and helped us make the right choice. The property has all modern amenities and great connectivity.",
     },
@@ -170,9 +165,7 @@ const TestimonialSection = () => {
                       <p className="text-blue-600 font-medium text-sm">
                         {testimonial.designation}
                       </p>
-                      <p className="text-gray-500 text-sm">
-                        {testimonial.location}
-                      </p>
+                      
                     </div>
                   </div>
 
