@@ -11,14 +11,15 @@ import OverviewSection from "./components/overview-section";
 import { FaLongArrowAltUp, FaWhatsapp } from "react-icons/fa";
 import Footer from "./components/footer-end";
 import "react-toastify/dist/ReactToastify.css";
+import TestimonialSection from "./components/testimonial";
 
 function App() {
   const scrollToTop = () => {
     window.scrollTo({
-      top:0,
+      top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
   return (
     <>
       {/* Floating CTA Buttons */}
@@ -46,15 +47,15 @@ function App() {
       <FeaturesSection />
       <FloorPlanSection />
       <GallerySection />
+      <TestimonialSection />
       {/* <PricePlanSection /> */}
       <ContactSection />
       <EnquiryFormPopup />
       <Footer />
       {/* <ToastContainer position="bottom-left" autoClose={3000} /> */}
-      <div className="lg:flex hidden cursor-pointer fixed bottom-24 right-7 flex flex-col gap-3 z-20 bg-red-700 rounded-full p-3"
-      >
+      <div className="lg:flex hidden cursor-pointer fixed bottom-24 right-7 flex flex-col gap-3 z-20 bg-red-700 rounded-full p-3">
         <button onClick={scrollToTop}>
-      <FaLongArrowAltUp color="white" className="w-6 h-6" />
+          <FaLongArrowAltUp color="white" className="w-6 cursor-pointer h-6" />
         </button>
       </div>
     </>
