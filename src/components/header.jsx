@@ -24,7 +24,7 @@ export default function Header() {
     { name: "Floor Plan", href: "#floorplan" },
     { name: "Gallery", href: "#gallery" },
     // { name: "Plans", href: "#priceplan" },
-    // { name: "Payment Plan", href: "#paymentplan" },
+    { name: "Testimonials", href: "#testimonial" },
     { name: "Contact", href: "#contact" },
   ];
 
