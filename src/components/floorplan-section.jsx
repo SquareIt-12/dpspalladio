@@ -74,13 +74,13 @@ export default function FloorPlanSection() {
         <div className="flex flex-col lg:flex-row lg:gap-x-28 justify-between">
           <button
             onClick={handleMulberry}
-            className="py-2 lg:p-3 bg-orange-500 lg:text-md md:text-md text-xs lg:w-full  text-white rounded-lg cursor-pointer mt-3 hover:bg-orange-700 "
+            className="py-2 lg:p-3 bg-orange-500 lg:text-lg md:text-md text-xs  lg:w-full  text-white rounded-lg cursor-pointer mt-3 hover:bg-orange-700 "
           >
             Mulberry Heights Brochure
           </button>
           <button
             onClick={handleSerenity}
-            className="py-2 lg:p-3 bg-orange-500 lg:text-md md:text-md text-xs text-white rounded-lg lg:w-full cursor-pointer mt-3 hover:bg-orange-700 "
+            className="py-2 lg:p-3 bg-orange-500 lg:text-lg md:text-md text-xs  text-white rounded-lg lg:w-full cursor-pointer mt-3 hover:bg-orange-700 "
           >
             Serenity Brochure
           </button>
