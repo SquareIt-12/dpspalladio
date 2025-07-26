@@ -51,7 +51,7 @@ function App() {
       <EnquiryFormPopup />
       <Footer />
       {/* <ToastContainer position="bottom-left" autoClose={3000} /> */}
-      <div className="lg:flex hidden cursor-pointer fixed bottom-24 right-7 flex flex-col gap-3 z-50 bg-red-700 rounded-full p-3"
+      <div className="lg:flex hidden cursor-pointer fixed bottom-24 right-7 flex flex-col gap-3 z-20 bg-red-700 rounded-full p-3"
       >
         <button onClick={scrollToTop}>
       <FaLongArrowAltUp color="white" className="w-6 h-6" />
