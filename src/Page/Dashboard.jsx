@@ -1,7 +1,7 @@
 // src/pages/AdminTable.jsx
 import React, { useEffect, useState } from "react";
 import { database, auth } from "../firebase";
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, remove } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
@@ -29,15 +29,43 @@ const Dashboard = () => {
 
     return () => unsubscribe();
   }, [navigate]);
-  console.log(data);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate("/");
+    } catch (error) {
+      console.error("Logout failed:", error.message);
+    }
+  };
+
+  const handleDelete = async (entryId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this record?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await remove(ref(database, `popupEnquiries/${entryId}`));
+      setData((prev) => prev.filter((item) => item.id !== entryId));
+    } catch (error) {
+      console.error("Failed to delete entry:", error.message);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-8">
       <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
-        <div className="p-6 border-b">
+        <div className="p-6 border-b flex items-center justify-between">
           <h2 className="text-2xl font-bold text-blue-600">
             Contact Submissions
           </h2>
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 cursor-pointer bg-red-500 hover:bg-red-600 text-white rounded-md transition"
+          >
+            Logout
+          </button>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto text-sm">
@@ -48,6 +76,7 @@ const Dashboard = () => {
                 <th className="px-4 py-3 text-left">Email</th>
                 <th className="px-4 py-3 text-left">Mobile</th>
                 <th className="px-4 py-3 text-left">Date/Time</th>
+                <th className="px-4 py-3 text-left">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -62,12 +91,20 @@ const Dashboard = () => {
                       ? new Date(entry.timestamp).toLocaleString("en-IN")
                       : "N/A"}
                   </td>
+                  <td className="px-4 py-2">
+                    <button
+                      onClick={() => handleDelete(entry.id)}
+                      className="px-3 py-1 cursor-pointer bg-red-500 text-white rounded hover:bg-red-600 text-xs"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
               {data.length === 0 && (
                 <tr>
                   <td
-                    colSpan="4"
+                    colSpan="6"
                     className="text-center px-4 py-6 text-gray-500"
                   >
                     No submissions found.
