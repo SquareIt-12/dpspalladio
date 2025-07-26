@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { database } from "../firebase";
 import { ref, push } from "firebase/database";
 import { Bounce, ToastContainer, toast } from "react-toastify";
@@ -177,9 +177,9 @@ const ContactSection = () => {
               <li className="hover:text-orange-500">
                 <a href="#gallery">Gallery</a>
               </li>
-              <li className="hover:text-orange-500">
+              {/* <li className="hover:text-orange-500">
                 <a href="#priceplan">Plans</a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
