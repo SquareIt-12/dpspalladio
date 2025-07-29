@@ -1,7 +1,7 @@
 import { PhoneCall } from "lucide-react";
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import Logo from "/images/logo.png"; // Adjust the path as necessary
+import Logo from "/images/rishita-logo.png"; // Adjust the path as necessary
 
 const ThankYou = () => {
   return (
