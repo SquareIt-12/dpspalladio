@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 export default function EnquiryFormPopup() {
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", mobile: "" });
   const navigate = useNavigate();
 
