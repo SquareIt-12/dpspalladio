@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 export default function EnquiryFormPopup() {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   const [form, setForm] = useState({ name: "", email: "", mobile: "" });
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ export default function EnquiryFormPopup() {
       navigate("/thanks"); // Redirect to thank you page
 
       // ✅ Close the form after slight delay to let toast show
-      setTimeout(() => setShowForm(false), 1000);
+      // setTimeout(() => setShowForm(false), 1000);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Error submitting form. Please try again.");
@@ -61,7 +61,7 @@ export default function EnquiryFormPopup() {
     <>
       {/* Floating Button */}
       <button
-        onClick={() => setShowForm(true)}
+        onClick={() => setShowForm(showForm)}
         className="fixed cursor-pointer bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4"
         title="Express Interest"
       >
