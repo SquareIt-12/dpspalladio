@@ -50,9 +50,8 @@ export default function EnquiryFormPopup() {
         name,
         email,
         mobile,
-        status: "Submitted",
-        timestamp: new Date().toISOString(),
-      })
+        timestamp: Date.now(),
+      });
 
       toast.success("Form submitted successfully!");
       setForm({ name: "", email: "", mobile: "" });

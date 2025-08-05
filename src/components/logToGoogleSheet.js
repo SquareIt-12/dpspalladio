@@ -1,6 +1,6 @@
 export const logToGoogleSheet = async (data) => {
   const sheetURL =
-    "https://script.google.com/macros/s/AKfycbwRa6yBx450vS3hGtR-1MGWSFmidoAmPDS7aJkMX2tFsNrxktzx_ozJs-XOTs1aIJWH/exec";
+    "https://script.google.com/macros/s/AKfycbxY8vgBQyds6j_CoRHjhqAB3givsZx9HQNr_brW3LnsOFsChhq07dGC2P-32WXcsV5X/exec";
 
   try {
     await fetch(sheetURL, {
@@ -12,6 +12,6 @@ export const logToGoogleSheet = async (data) => {
     });
     console.log("✅ Google Sheet log success");
   } catch (err) {
-    console.error("❌ Google Sheet log failed",err);
- }
+    console.error("❌ Google Sheet log failed", err);
+  }
 };

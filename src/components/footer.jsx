@@ -46,12 +46,11 @@ const ContactSection = () => {
       });
 
       await logToGoogleSheet({
-              name,
-              email,
-              mobile:phone,
-              status: "Submitted",
-              timestamp: new Date().toISOString(),
-            })
+        name,
+        email,
+        mobile: phone,
+        timestamp: Date.now(),
+      });
 
       toast.success("Form submitted successfully!");
       setForm({ name: "", phone: "", email: "" });
