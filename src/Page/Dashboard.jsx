@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   const logToGoogleSheet = async (entry) => {
     const sheetURL =
-      "https://script.google.com/macros/s/AKfycbyMEO-NJcqvhvJqnz4GyYRl3cQh-3XIbKJ_cPupxzJmXOLMlMxMeyTKm5lSKZP6l3o1/exec";
+      "https://script.google.com/macros/s/AKfycbwRa6yBx450vS3hGtR-1MGWSFmidoAmPDS7aJkMX2tFsNrxktzx_ozJs-XOTs1aIJWH/exec";
 
     const payload = {
       name: entry.name,
@@ -66,6 +66,7 @@ const Dashboard = () => {
       id: entry.id,
       status: "Deleted by admin",
     };
+    console.log("Sending to Google Sheet", payload);
 
     try {
       await fetch(sheetURL, {
