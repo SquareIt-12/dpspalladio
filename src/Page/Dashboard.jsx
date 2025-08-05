@@ -19,10 +19,12 @@ const Dashboard = () => {
     onValue(dbRef, (snapshot) => {
       const records = snapshot.val();
       const formatted = records
-        ? Object.entries(records).map(([id, values]) => ({
-            id,
-            ...values,
-          }))
+        ? Object.entries(records)
+            .map(([id, values]) => ({
+              id,
+              ...values,
+            }))
+            .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)) // 🟢 newest first
         : [];
       setData(formatted);
     });
@@ -39,17 +41,63 @@ const Dashboard = () => {
     }
   };
 
+  // const handleDelete = async (entryId) => {
+  //   const confirmDelete = window.confirm(
+  //     "Are you sure you want to delete this record?"
+  //   );
+  //   if (!confirmDelete) return;
+
+  //   try {
+  //     await remove(ref(database, `popupEnquiries/${entryId}`));
+  //     setData((prev) => prev.filter((item) => item.id !== entryId));
+  //   } catch (error) {
+  //     console.error("Failed to delete entry:", error.message);
+  //   }
+  // };
+
+  const logToGoogleSheet = async (entry) => {
+    const sheetURL =
+      "https://script.google.com/macros/s/AKfycbyMEO-NJcqvhvJqnz4GyYRl3cQh-3XIbKJ_cPupxzJmXOLMlMxMeyTKm5lSKZP6l3o1/exec";
+
+    const payload = {
+      name: entry.name,
+      email: entry.email,
+      mobile: entry.mobile,
+      id: entry.id,
+      status: "Deleted by admin",
+    };
+
+    try {
+      await fetch(sheetURL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Logged deletion to Google Sheet ✅");
+    } catch (error) {
+      console.error("Google Sheet logging failed ❌", error);
+    }
+  };
   const handleDelete = async (entryId) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this record?"
     );
     if (!confirmDelete) return;
 
+    const deletedEntry = data.find((item) => item.id === entryId);
+    if (!deletedEntry) return;
+
     try {
+      // 🔄 Log to Google Sheet before deletion
+      await logToGoogleSheet(deletedEntry);
+
+      // 🔄 Delete from Firebase
       await remove(ref(database, `popupEnquiries/${entryId}`));
       setData((prev) => prev.filter((item) => item.id !== entryId));
     } catch (error) {
-      console.error("Failed to delete entry:", error.message);
+      console.error("Failed to delete entry or log:", error.message);
     }
   };
 
