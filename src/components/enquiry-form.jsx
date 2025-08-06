@@ -66,7 +66,7 @@ export default function EnquiryFormPopup() {
     <>
       {/* Floating Button */}
       <button
-        onClick={() => setShowForm(showForm)}
+        onClick={() => setShowForm(!showForm)}
         className="fixed cursor-pointer bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4"
         title="Express Interest"
       >
