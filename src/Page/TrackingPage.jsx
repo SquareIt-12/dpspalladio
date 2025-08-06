@@ -28,7 +28,7 @@ const TrackingPage = () => {
       <button
         onClick={() => {
           localStorage.removeItem("isAuthenticated");
-          window.location.href = "/login";
+          window.location.href = "/";
         }}
         className="bg-red-500 text-white px-4 py-2 rounded mb-4 absolute right-8 cursor-pointer"
       >
