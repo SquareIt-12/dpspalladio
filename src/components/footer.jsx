@@ -73,11 +73,11 @@ const ContactSection = () => {
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
 
             <a
-              href="tel:+918808698649"
+              href="tel:+918750488908"
               className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
             >
               <Phone className="w-5 h-5 mr-2 text-blue-400" />
-              +91 8808698649
+              +91 8750488908
             </a>
 
             <a

@@ -36,11 +36,11 @@ export default function Header() {
           Rera no: UPRERAAGT17933
         </span>
         <a
-          href="tel:+918808698649"
+          href="tel:+918750488908"
           className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full flex items-center gap-2"
         >
           <Phone size={16} />
-          <span>+91 8808698649</span>
+          <span>+91 8750488908</span>
         </a>
       </div>
 
