@@ -4,7 +4,6 @@ import { database, ref, push } from "../firebase";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { logToGoogleSheet } from "./logToGoogleSheet";
 
 export default function EnquiryFormPopup() {
   const [showForm, setShowForm] = useState(true);
@@ -38,20 +37,18 @@ export default function EnquiryFormPopup() {
       return;
     }
 
-    try {
-      await push(ref(database, "popupEnquiries"), {
-        name,
-        email,
-        mobile,
-        timestamp: Date.now(),
-      });
+    const entry = {
+      name,
+      email,
+      mobile,
+      timestamp: Date.now(),
+    };
 
-      await logToGoogleSheet({
-        name,
-        email,
-        mobile,
-        timestamp: Date.now(),
-      });
+    try {
+      await push(ref(database, "popupEnquiries"), entry);
+
+      // Save to allEnquiries (used by permanent tracking page)
+      await push(ref(database, "allEnquiries"), entry);
 
       toast.success("Form submitted successfully!");
       setForm({ name: "", email: "", mobile: "" });

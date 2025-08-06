@@ -4,7 +4,6 @@ import { database } from "../firebase";
 import { ref, push } from "firebase/database";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { logToGoogleSheet } from "./logToGoogleSheet";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
@@ -36,21 +35,18 @@ const ContactSection = () => {
       toast.error("Phone number must be 10 digits.");
       return;
     }
+    const entry = {
+      name,
+      email,
+      mobile,
+      timestamp: Date.now(),
+    };
 
     try {
-      await push(ref(database, "popupEnquiries"), {
-        name,
-        email,
-        mobile: phone,
-        timestamp: Date.now(),
-      });
+      await push(ref(database, "popupEnquiries"), entry);
 
-      await logToGoogleSheet({
-        name,
-        email,
-        mobile: phone,
-        timestamp: Date.now(),
-      });
+      // Save to allEnquiries (used by permanent tracking page)
+      await push(ref(database, "allEnquiries"), entry);
 
       toast.success("Form submitted successfully!");
       setForm({ name: "", phone: "", email: "" });
