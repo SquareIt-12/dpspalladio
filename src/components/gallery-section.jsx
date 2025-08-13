@@ -17,6 +17,10 @@ import gall10 from "/images/ris6.jpg";
 import gall11 from "/images/ris7.jpg";
 import gall12 from "/images/ris8.jpg";
 
+import gall13 from "/images/ris9.jpg";
+import gall14 from "/images/ris10.jpg";
+import gall15 from "/images/ris11.jpg";
+
 
 
 
@@ -39,9 +43,9 @@ export default function GallerySection() {
   ];
 
   const galleryRow4 = [
-    { src: gall10, alt: "Gallery 10" },
-    { src: gall11, alt: "Gallery 11" },
-    { src: gall12, alt: "Gallery 12" },
+    { src: gall13, alt: "Gallery 13" },
+    { src: gall14, alt: "Gallery 14" },
+    { src: gall15, alt: "Gallery 15" },
   ];
 
   const handleImageClick = (imageSrc) => {
