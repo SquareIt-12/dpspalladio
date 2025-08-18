@@ -47,7 +47,7 @@ export default function FeaturesSection() {
     <section className="bg-white py-16 px-4" id="features">
       {/* Heading */}
       <header className="mb-12 flex justify-center">
-        <div className="inline-flex items-center bg-orange-50 text-orange-600 px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
+        <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
           <CheckCircle className="w-5 h-5 mr-2" />
           Our Features
         </div>
