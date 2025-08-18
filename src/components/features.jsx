@@ -1,108 +1,70 @@
 import React from "react";
-import f1 from "/images/f1.png";
-import f2 from "/images/f2.png";
-import f3 from "/images/f3.png";
-import f4 from "/images/f4.png";
-import f5 from "/images/f5.png";
-import f6 from "/images/f6.png";
-
+import {
+  Users,
+  ShieldCheck,
+  Power,
+  Car,
+  TreeDeciduous,
+  Wifi,
+  CheckCircle
+} from "lucide-react";
 
 export default function FeaturesSection() {
-
-  const featuresRow1 = [
+  const features = [
     {
       title: "Club",
       description: "House High End Club house with modern facilities",
-      imgSrc: f1,
-      imgAlt: "Club icon",
+      icon: <Users className="w-10 h-10 text-blue-500" />,
     },
     {
       title: "Security System",
-      description:
-        "Gated Community, Access Control at entrance, CCTV surveillance",
-      imgSrc: f2,
-      imgAlt: "Security System icon",
+      description: "Gated Community, Access Control at entrance, CCTV surveillance",
+      icon: <ShieldCheck className="w-10 h-10 text-red-500" />,
     },
     {
       title: "Power Back-up",
-      description:
-        "Gated Community, Access Control at entrance, CCTV surveillance",
-      imgSrc: f3,
-      imgAlt: "Power Back-up icon",
+      description: "24/7 electricity backup for common and residential areas",
+      icon: <Power className="w-10 h-10 text-green-500" />,
     },
-  ];
-
-  const featuresRow2 = [
     {
       title: "Ample Parking",
       description: "Basement / Open Car Parking",
-      imgSrc: f4,
-      imgAlt: "Ample Parking icon",
+      icon: <Car className="w-10 h-10 text-yellow-500" />,
     },
     {
       title: "Landscape",
-      description:
-        "Lush Green Parks with Jogging Tracks / Fountains / Water Bodies",
-      imgSrc: f5,
-      imgAlt: "Landscape icon",
+      description: "Lush Green Parks with Jogging Tracks / Fountains / Water Bodies",
+      icon: <TreeDeciduous className="w-10 h-10 text-pink-500" />,
     },
     {
       title: "Connectivity",
       description: "Wi-Fi enabled Campus",
-      imgSrc: f6,
-      imgAlt: "Connectivity icon",
+      icon: <Wifi className="w-10 h-10 text-orange-500" />,
     },
   ];
 
-  const FeatureBox = ({ feature }) => (
-    <section className="w-full md:w-1/3 px-4 mb-8 scroll-mt-20 " id="features">
-      <div className="feature-box">
-        <header>
-          <div className="text-center mb-4">
-            <img
-              src={feature.imgSrc}
-              alt={feature.imgAlt}
-              className="mx-auto"
-              loading="lazy"
-            />
-          </div>
-          <h4 className="text-center text-white text-lg font-medium mb-4">
-            {feature.title}
-          </h4>
-        </header>
-        <p className="text-center text-white text-sm leading-relaxed">
-          {feature.description}
-        </p>
-      </div>
-    </section>
-  );
-
   return (
-    <section
-      id="features-boxes"
-      className="block py-12"
-      style={{ backgroundColor: "#2d2d32" }}
-    >
-      <div className="container mx-auto px-4 max-w-6xl">
-        <header className="mb-8">
-          <h2 className="text-xl text-center text-white font-medium">
-            Our Features
-          </h2>
-        </header>
-
-        {/* First Row */}
-        <div className="flex flex-wrap -mx-4 mb-4">
-          {featuresRow1.map((feature, index) => (
-            <FeatureBox key={index} feature={feature} />
-          ))}
+    <section className="bg-white py-16 px-4" id="features">
+      {/* Heading */}
+      <header className="mb-12 flex justify-center">
+        <div className="inline-flex items-center bg-orange-50 text-orange-600 px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
+          <CheckCircle className="w-5 h-5 mr-2" />
+          Our Features
         </div>
+      </header>
 
-        {/* Second Row */}
-        <div className="flex flex-wrap -mx-4">
-          {featuresRow2.map((feature, index) => (
-            <FeatureBox key={index} feature={feature} />
-          ))}
-        </div>
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="text-center bg-white border border-orange-100 rounded-lg p-6 shadow hover:shadow-md transition"
+          >
+            <div className="mb-4 flex justify-center">{feature.icon}</div>
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">{feature.title}</h4>
+            <p className="text-sm text-gray-600">{feature.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

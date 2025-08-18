@@ -1,262 +1,222 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Star, Quote } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle } from 'lucide-react';
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-const TestimonialSection = () => {
+const TestimonialSlider = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      designation: "Software Engineer",
-      location: "Lucknow",
-      rating: 5,
-      image:
-        "/images/test4.jpg",
-      testimonial:
-        "Excellent service and beautiful property! The team was very professional and helped us find our dream home. The location is perfect with all amenities nearby.",
+      name: "Sarah Johnson",
+      role: "Marketing Director",
+      company: "TechCorp Inc.",
+      content: "This service has completely transformed how we approach our marketing strategy. The results exceeded our expectations and the team was incredibly professional throughout the entire process.",
+      rating: 5
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      designation: "Marketing Manager",
-      rating: 5,
-      image:
-        "/images/test1.jpg",
-      testimonial:
-        "Amazing experience with Ganesham Adept! The property quality is outstanding and the customer service exceeded our expectations. Highly recommended for anyone looking for premium homes.",
+      name: "Michael Chen",
+      role: "CEO",
+      company: "StartupXYZ",
+      content: "Outstanding quality and exceptional customer service. I've never experienced such attention to detail and commitment to excellence. Highly recommend to anyone looking for top-tier solutions.",
+      rating: 5
     },
     {
       id: 3,
-      name: "Amit Singh",
-      designation: "Business Owner",
-      rating: 4,
-      image:
-        "/images/test5.jpg",
-      testimonial:
-        "Great investment opportunity! The construction quality is top-notch and the location has excellent connectivity. The team was transparent throughout the process.",
+      name: "Emily Rodriguez",
+      role: "Product Manager",
+      company: "Innovation Labs",
+      content: "The team delivered exactly what they promised, on time and within budget. Their expertise and professionalism made the entire project seamless. We'll definitely be working with them again.",
+      rating: 5
     },
     {
       id: 4,
-      name: "Sunita Gupta",
-      designation: "Doctor",
-      rating: 5,
-      image:
-        "/images/test2.jpg",
-      testimonial:
-        "Perfect home for our family! The amenities are fantastic and the neighborhood is very safe. The buying process was smooth and hassle-free.",
+      name: "David Thompson",
+      role: "Creative Director",
+      company: "Design Studio",
+      content: "Incredible attention to detail and creative vision. They understood our brand perfectly and delivered results that far surpassed our initial expectations. Truly exceptional work.",
+      rating: 5
     },
     {
       id: 5,
-      name: "Vikash Mishra",
-      designation: "CA",
-      rating: 5,
-      image:
-        "/images/test6.jpg",
-      testimonial:
-        "Outstanding service from start to finish! The property exceeded our expectations and the team was always available to address our concerns. Best decision we made!",
-    },
-    {
-      id: 6,
-      name: "Neha Agarwal",
-      designation: "Teacher",
-      rating: 5,
-      image:
-        "/images/test3.jpg",
-      testimonial:
-        "Wonderful experience! The team was patient with all our queries and helped us make the right choice. The property has all modern amenities and great connectivity.",
-    },
+      name: "Lisa Wang",
+      role: "Operations Manager",
+      company: "Global Solutions",
+      content: "Professional, reliable, and innovative. The impact on our business has been remarkable. Their strategic approach and execution have helped us achieve goals we didn't think were possible.",
+      rating: 5
+    }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, testimonials.length]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+    // Resume auto-play after 8 seconds of inactivity
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
   const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, index) => (
+    return [...Array(5)].map((_, i) => (
       <Star
-        key={index}
-        className={`w-4 h-4 ${
-          index < rating ? "text-yellow-400 fill-current" : "text-gray-300"
+        key={i}
+        className={`w-5 h-5 ${
+          i < rating ? 'text-orange-500 fill-orange-500' : 'text-gray-300'
         }`}
       />
     ));
   };
 
   return (
-    <section
-      className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 mb-10"
-      id="testimonial"
-    >
-      <div className="container mx-auto px-4">
+    <section id='testimonial' className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            What Our <span className="text-blue-600">Clients Say</span>
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients
-            have to say about their experience with us.
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 mb-5 rounded-full text-lg font-semibold shadow-sm">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            Testimonial
+          </div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it. Here's what our satisfied customers have to say about their experience.
           </p>
         </div>
 
-        {/* Swiper Container */}
+        {/* Testimonial Slider */}
         <div className="relative">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-              bulletClass: "swiper-pagination-bullet custom-bullet",
-              bulletActiveClass:
-                "swiper-pagination-bullet-active custom-bullet-active",
-            }}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-            }}
-            className="testimonial-swiper pb-12"
-          >
-            {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id}>
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 mx-2 relative overflow-hidden group h-full">
-                  {/* Quote Icon */}
-                  <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <Quote className="w-16 h-16 text-blue-600" />
-                  </div>
+          {/* Main Testimonial Display */}
+          <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-xl p-8 sm:p-12 relative overflow-hidden">
+            {/* Decorative Quote Icon */}
+            <div className="absolute top-6 right-6 opacity-10">
+              <Quote className="w-16 h-16 text-orange-500" />
+            </div>
 
-                  {/* Profile Section */}
-                  <div className="flex items-center mb-6">
-                    <div className="relative">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-16 h-16 rounded-full object-cover border-4 border-blue-100"
-                      />
-                      <div className="absolute -bottom-2 -right-2 bg-blue-600 rounded-full p-1">
-                        <Quote className="w-3 h-3 text-white" />
-                      </div>
-                    </div>
-                    <div className="ml-4 flex-1">
-                      <h4 className="font-bold text-gray-800 text-lg">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-blue-600 font-medium text-sm">
-                        {testimonial.designation}
-                      </p>
-                      
-                    </div>
-                  </div>
+            {/* Testimonial Content */}
+            <div className="relative z-10">
+              {/* Stars */}
+              <div className="flex justify-center mb-6">
+                <div className="flex space-x-1">
+                  {renderStars(testimonials[currentIndex].rating)}
+                </div>
+              </div>
 
-                  {/* Rating */}
-                  <div className="flex items-center mb-4">
-                    <div className="flex space-x-1">
-                      {renderStars(testimonial.rating)}
-                    </div>
-                    <span className="ml-2 text-gray-600 text-sm font-medium">
-                      {testimonial.rating}/5
+              {/* Quote */}
+              <blockquote className="text-xl sm:text-2xl text-gray-800 text-center mb-8 leading-relaxed font-medium">
+                "{testimonials[currentIndex].content}"
+              </blockquote>
+
+              {/* Author Info */}
+              <div className="text-center">
+                <div className="inline-flex flex-col items-center">
+                  {/* Name Circle */}
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-xl">
+                      {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-
-                  {/* Testimonial Text */}
-                  <p className="text-gray-700 leading-relaxed text-base italic">
-                    "{testimonial.testimonial}"
+                  <h4 className="font-bold text-lg text-gray-900">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  <p className="text-orange-600 font-medium">
+                    {testimonials[currentIndex].role}
                   </p>
-
-                  {/* Decorative Element */}
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                  <p className="text-gray-600">
+                    {testimonials[currentIndex].company}
+                  </p>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
+            </div>
+          </div>
 
-          {/* Custom Navigation Buttons */}
-          <div className="custom-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border-2 border-gray-200 flex items-center justify-center cursor-pointer hover:border-blue-500 hover:scale-110 transition-all duration-300 md:flex hidden">
-            <svg
-              className="w-5 h-5 text-blue-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </div>
-          <div className="custom-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border-2 border-gray-200 flex items-center justify-center cursor-pointer hover:border-blue-500 hover:scale-110 transition-all duration-300 md:flex hidden">
-            <svg
-              className="w-5 h-5 text-blue-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-orange-50 text-orange-500 hover:text-orange-600 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-orange-50 text-orange-500 hover:text-orange-600 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
 
-       
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? 'bg-orange-500 w-8'
+                  : 'bg-gray-300 hover:bg-orange-300'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Auto-play Indicator */}
+        <div className="text-center mt-6">
+          <p className="text-sm text-gray-500">
+            {isAutoPlaying ? (
+              <span className="flex items-center justify-center space-x-2">
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                <span>Auto-playing</span>
+              </span>
+            ) : (
+              "Paused - will resume automatically"
+            )}
+          </p>
+        </div>
+
+        {/* Additional Trust Elements */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
+          <div className="text-center p-6 bg-orange-50 rounded-xl">
+            <div className="text-3xl font-bold text-orange-600 mb-2">500+</div>
+            <div className="text-gray-700">Happy Clients</div>
+          </div>
+          <div className="text-center p-6 bg-orange-50 rounded-xl">
+            <div className="text-3xl font-bold text-orange-600 mb-2">4.9/5</div>
+            <div className="text-gray-700">Average Rating</div>
+          </div>
+          <div className="text-center p-6 bg-orange-50 rounded-xl">
+            <div className="text-3xl font-bold text-orange-600 mb-2">99%</div>
+            <div className="text-gray-700">Satisfaction Rate</div>
+          </div>
+        </div>
       </div>
-
-      {/* Custom Styles */}
-      <style jsx>{`
-        .testimonial-swiper .swiper-slide {
-          height: auto;
-          display: flex;
-        }
-
-        .testimonial-swiper .swiper-slide > div {
-          width: 100%;
-        }
-
-        .custom-bullet {
-          width: 12px !important;
-          height: 12px !important;
-          background: #3b82f6 !important;
-          opacity: 0.3 !important;
-          margin: 0 4px !important;
-        }
-
-        .custom-bullet-active {
-          opacity: 1 !important;
-          transform: scale(1.2) !important;
-        }
-
-        .swiper-pagination {
-          bottom: 0 !important;
-        }
-      `}</style>
     </section>
   );
 };
 
-export default TestimonialSection;
+export default TestimonialSlider;

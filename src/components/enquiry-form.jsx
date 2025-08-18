@@ -65,53 +65,76 @@ export default function EnquiryFormPopup() {
   return (
     <>
       {/* Floating Button */}
-      <button
-        onClick={() => setShowForm(!showForm)}
+      <a
+        href=""
         className="fixed cursor-pointer bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4"
         title="Express Interest"
       >
         <Mail className="w-6 h-6" />
-      </button>
-
-      {/* Popup Form */}
+      </a>
       {showForm && (
-        <div className="fixed bottom-5 right-3 bg-white shadow-2xl p-4 rounded-md w-[280px] z-50 border">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-md font-semibold">EXPRESS YOUR INTEREST</h2>
-            <button onClick={() => setShowForm(false)}>
-              <X className="text-red-600 cursor-pointer" />
-            </button>
-          </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 backdrop-blur-[6px] bg-black/50 bg-opacity-50"
+            onClick={() => setShowForm(false)}
+          ></div>
 
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Name*"
-              className="w-full mb-3 p-1 border rounded bg-gray-100"
-            />
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="Email*"
-              className="w-full mb-3 p-1 border rounded bg-gray-100"
-            />
-            <input
-              type="tel"
-              name="mobile"
-              value={form.mobile}
-              onChange={handleChange}
-              placeholder="Mobile*"
-              className="w-full mb-3 p-1 border rounded bg-gray-100"
-            />
-            <button type="submit" className="w-full bg-black text-white py-2">
-              SUBMIT
-            </button>
-          </form>
+          {/* Centered Popup */}
+          <div className="relative bg-white shadow-2xl p-6 rounded-xl w-[400px] mx-auto border-2 border-orange-400">
+            {/* Centered Logo */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="/images/rishita-logo.png"
+                alt="Logo"
+                className="h-12 w-auto"
+              />
+            </div>
+
+            {/* Header with Close Button */}
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-bold text-orange-600">
+                EXPRESS YOUR INTEREST
+              </h2>
+              <button onClick={() => setShowForm(false)}>
+                <X className="text-red-600 absolute top-2 right-2 cursor-pointer w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Name*"
+                className="w-full mb-3 p-3 border border-orange-300 rounded bg-orange-50 placeholder-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              />
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Email*"
+                className="w-full mb-3 p-3 border border-orange-300 rounded bg-orange-50 placeholder-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              />
+              <input
+                type="tel"
+                name="mobile"
+                value={form.mobile}
+                onChange={handleChange}
+                placeholder="Mobile*"
+                className="w-full mb-4 p-3 border border-orange-300 rounded bg-orange-50 placeholder-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              />
+              <button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded transition-colors"
+              >
+                SUBMIT
+              </button>
+            </form>
+          </div>
         </div>
       )}
 

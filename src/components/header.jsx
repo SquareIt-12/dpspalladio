@@ -31,13 +31,13 @@ export default function Header() {
   return (
     <>
       {/* RERA section - This will scroll with the page */}
-      <div className="bg-gray-800 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
+      <div className="bg-orange-500 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
         <span className="lg:text-md md:text-md text-sm">
           Rera no: UPRERAAGT17933
         </span>
         <a
           href="tel:+918750488908"
-          className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-full flex items-center gap-2"
+          className="bg-white hover:bg-white text-orange-500 px-3 py-1 rounded-full flex items-center gap-2"
         >
           <Phone size={16} />
           <span>+91 8750488908</span>

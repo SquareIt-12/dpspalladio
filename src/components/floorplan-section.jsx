@@ -3,6 +3,7 @@ import floorPlanImg1 from "/images/floor3.jpg";
 import floorPlanImg2 from "/images/floor2.jpg";
 import Mulberry from "/images/Mulberry-brochure.pdf";
 import Serenity from "/images/Serenity-brochure.pdf";
+import { CheckCircle } from "lucide-react";
 
 export default function FloorPlanSection() {
   const handleImageClick = () => {
@@ -25,9 +26,12 @@ export default function FloorPlanSection() {
   return (
     <section id="floorplan" className="block bg-gray-100 py-12 scroll-mt-20 ">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-center text-xl font-medium mb-8 text-gray-800">
-          Floor Plan
-        </h2>
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            Floor Plan
+          </div>
+        </div>
 
         <div className="w-full">
           <div className="property-wrapper">
@@ -74,13 +78,13 @@ export default function FloorPlanSection() {
         <div className="flex flex-col lg:flex-row lg:gap-x-28 justify-between">
           <button
             onClick={handleMulberry}
-            className="py-2 lg:p-3 bg-orange-500 lg:text-lg md:text-md text-xs  lg:w-full  text-white rounded-lg cursor-pointer mt-3 hover:bg-orange-700 "
+            className="py-2 lg:p-3 bg-blue-300 lg:text-lg md:text-md text-xs font-semibold lg:w-full  text-black rounded-lg cursor-pointer mt-3 hover:bg-blue-400 "
           >
             Mulberry Heights Brochure
           </button>
           <button
             onClick={handleSerenity}
-            className="py-2 lg:p-3 bg-orange-500 lg:text-lg md:text-md text-xs  text-white rounded-lg lg:w-full cursor-pointer mt-3 hover:bg-orange-700 "
+            className="py-2 lg:p-3 bg-blue-300 lg:text-lg md:text-md text-xs  text-black font-semibold rounded-lg lg:w-full cursor-pointer mt-3 hover:bg-blue-400 "
           >
             Serenity Brochure
           </button>
