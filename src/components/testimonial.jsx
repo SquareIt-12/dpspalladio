@@ -1,59 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  Quote,
+  CheckCircle,
+} from "lucide-react";
 
 const TestimonialSlider = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "Marketing Director",
-      company: "TechCorp Inc.",
-      content: "This service has completely transformed how we approach our marketing strategy. The results exceeded our expectations and the team was incredibly professional throughout the entire process.",
-      rating: 5
+      name: "Amit Sharma",
+      role: "Software Engineer",
+      company: "IT Professional",
+      content:
+        "Buying my first flat felt overwhelming, but the Rishita Mulberry team made it so easy. They patiently explained everything and helped me secure a beautiful 2BHK within my budget. Truly grateful!",
+      rating: 5,
     },
     {
       id: 2,
-      name: "Michael Chen",
-      role: "CEO",
-      company: "StartupXYZ",
-      content: "Outstanding quality and exceptional customer service. I've never experienced such attention to detail and commitment to excellence. Highly recommend to anyone looking for top-tier solutions.",
-      rating: 5
+      name: "Priya Verma",
+      role: "HR Manager",
+      company: "Corporate Sector",
+      content:
+        "I was looking for a premium property in Lucknow to settle my parents. The project exceeded our expectations – excellent location, world-class amenities, and smooth documentation process.",
+      rating: 5,
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      role: "Product Manager",
-      company: "Innovation Labs",
-      content: "The team delivered exactly what they promised, on time and within budget. Their expertise and professionalism made the entire project seamless. We'll definitely be working with them again.",
-      rating: 5
+      name: "Rahul Khanna",
+      role: "Business Consultant",
+      company: "NRI Investor",
+      content:
+        "As an NRI, I wanted a reliable investment in India. The Rishita team guided me through everything online and helped me invest in a luxury apartment. Great returns and a trustworthy experience.",
+      rating: 5,
     },
     {
       id: 4,
-      name: "David Thompson",
-      role: "Creative Director",
-      company: "Design Studio",
-      content: "Incredible attention to detail and creative vision. They understood our brand perfectly and delivered results that far surpassed our initial expectations. Truly exceptional work.",
-      rating: 5
+      name: "Sneha Iyer",
+      role: "UI/UX Designer",
+      company: "Tech Industry",
+      content:
+        "We wanted a modern, spacious apartment with amenities for our growing family. Mulberry Heights offered everything – from clubhouse to green surroundings. A perfect choice for us!",
+      rating: 5,
     },
     {
       id: 5,
-      name: "Lisa Wang",
-      role: "Operations Manager",
-      company: "Global Solutions",
-      content: "Professional, reliable, and innovative. The impact on our business has been remarkable. Their strategic approach and execution have helped us achieve goals we didn't think were possible.",
-      rating: 5
-    }
+      name: "Rajesh Patel",
+      role: "Entrepreneur",
+      company: "Real Estate Investor",
+      content:
+        "I was impressed with the transparency and professionalism of the sales team. The project quality is excellent, and possession was exactly on time. Highly recommended for anyone looking to invest in Lucknow.",
+      rating: 5,
+    },
   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Auto-slide functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000); // Change slide every 4 seconds
@@ -69,13 +79,17 @@ const TestimonialSlider = () => {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1);
+    setCurrentIndex(
+      currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 8000);
   };
 
   const goToNext = () => {
-    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
+    setCurrentIndex(
+      currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 8000);
   };
@@ -85,23 +99,24 @@ const TestimonialSlider = () => {
       <Star
         key={i}
         className={`w-5 h-5 ${
-          i < rating ? 'text-orange-500 fill-orange-500' : 'text-gray-300'
+          i < rating ? "text-orange-500 fill-orange-500" : "text-gray-300"
         }`}
       />
     ));
   };
 
   return (
-    <section id='testimonial' className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <section id="testimonial" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-6">
           <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 mb-5 rounded-full text-lg font-semibold shadow-sm">
             <CheckCircle className="w-5 h-5 mr-2" />
-            Testimonial
+            What Our Buyers Say About Us
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers have to say about their experience.
+            Don't just take our word for it. Here's what our satisfied customers
+            have to say about their experience.
           </p>
         </div>
 
@@ -134,7 +149,10 @@ const TestimonialSlider = () => {
                   {/* Name Circle */}
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mb-3">
                     <span className="text-white font-bold text-xl">
-                      {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
+                      {testimonials[currentIndex].name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </span>
                   </div>
                   <h4 className="font-bold text-lg text-gray-900">
@@ -159,7 +177,7 @@ const TestimonialSlider = () => {
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          
+
           <button
             onClick={goToNext}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-orange-50 text-orange-500 hover:text-orange-600 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
@@ -177,8 +195,8 @@ const TestimonialSlider = () => {
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-orange-500 w-8'
-                  : 'bg-gray-300 hover:bg-orange-300'
+                  ? "bg-orange-500 w-8"
+                  : "bg-gray-300 hover:bg-orange-300"
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
@@ -187,7 +205,7 @@ const TestimonialSlider = () => {
 
         {/* Auto-play Indicator */}
         <div className="text-center mt-6">
-          <p className="text-sm text-gray-500">
+          {/* <p className="text-sm text-gray-500">
             {isAutoPlaying ? (
               <span className="flex items-center justify-center space-x-2">
                 <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
@@ -196,7 +214,7 @@ const TestimonialSlider = () => {
             ) : (
               "Paused - will resume automatically"
             )}
-          </p>
+          </p> */}
         </div>
 
         {/* Additional Trust Elements */}
