@@ -60,7 +60,7 @@ const Banner = () => {
         <img
           src={slide.image}
           loading="lazy"
-          className="lg:w-[100vw] w-full lg:h-[100vh] h-full lg:object-fill md:object-cover object-contain"
+          className="lg:w-[100vw] w-full lg:h-[100vh] h-full lg:object-cover md:object-cover object-contain"
         />
       </SwiperSlide>
     ))}
