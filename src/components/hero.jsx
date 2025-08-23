@@ -5,7 +5,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import Img1 from "/images/banner1.jpg";
 import Img2 from "/images/banner2.jpg";
-import Img3 from "/images/banner4.jpg";
+import Img3 from "/images/banner7.jpg";
 
 
 const slides = [
@@ -46,7 +46,7 @@ const Banner = () => {
 
     //   {/* Floating Animation Elements */}
     // </section>
-    <section className="relative w-full h-[80vh] mt-20 overflow-hidden">
+    <section className="relative w-full lg:h-[80vh] md:h-[70vh] h-[40vh] mt-20 overflow-hidden">
   <Swiper
     modules={[Autoplay, Pagination, EffectFade]}
     autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -60,7 +60,7 @@ const Banner = () => {
         <img
           src={slide.image}
           loading="lazy"
-          className="w-full h-full object-cover"
+          className="lg:w-[100vw] w-full lg:h-[100vh] h-full lg:object-fill md:object-cover object-contain"
         />
       </SwiperSlide>
     ))}
