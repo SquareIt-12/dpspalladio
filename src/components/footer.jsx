@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Phone, Mail } from "lucide-react";
 import { database } from "../firebase";
-import { ref, push } from "firebase/database";
+import {
+  ref,
+  push,
+  get,
+  query,
+  orderByChild,
+  equalTo,
+} from "firebase/database";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -43,6 +50,33 @@ const ContactSection = () => {
     };
 
     try {
+      //  check duplicate entries
+      // 🟢 Duplicate check by email + phone (last 10 minutes)
+      const q = query(
+        ref(database, "popupEnquiries"),
+        orderByChild("email"),
+        equalTo(email)
+      );
+      const snapshot = await get(q);
+
+      let duplicateFound = false;
+      if (snapshot.exists()) {
+        snapshot.forEach((child) => {
+          const data = child.val();
+          if (data.mobile === phone) {
+            // if submitted within 10 minutes
+            if (Date.now() - (data.timestamp || 0) < 10 * 60 * 1000) {
+              duplicateFound = true;
+            }
+          }
+        });
+      }
+
+      if (duplicateFound) {
+        toast.error("You’ve already submitted recently. Please wait a while.");
+        return;
+      }
+
       await push(ref(database, "popupEnquiries"), entry);
 
       // Save to allEnquiries (used by permanent tracking page)

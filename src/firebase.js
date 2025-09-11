@@ -1,8 +1,8 @@
+// src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getDatabase, ref, push } from "firebase/database";
+import { getAuth, signInAnonymously } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
-// ✅ Make sure you replace "your-messagingSenderId" and "your-app-id"
 const firebaseConfig = {
   apiKey: "AIzaSyD4Tg6RkezJwkHd1qgMfhVEYWkD6odoqyM",
   authDomain: "rishitamulberry-10164.firebaseapp.com",
@@ -16,7 +16,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+// ✅ Auth & DB
 export const auth = getAuth(app);
-export const database = getDatabase(app); // ✅ Rename to match your component
+export const database = getDatabase(app);
 
-export {ref, push}
+// ✅ Sign in anonymously at startup (so `.read` rules work)
+signInAnonymously(auth).catch((error) => {
+  console.error("Anonymous sign-in failed:", error.code, error.message);
+});
