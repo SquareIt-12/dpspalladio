@@ -162,9 +162,6 @@ import {
   ref,
   push,
   get,
-  query,
-  orderByChild,
-  equalTo,
 } from "firebase/database"; // ✅ helpers from firebase
 import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -249,13 +246,13 @@ export default function EnquiryFormPopup() {
   return (
     <>
       {/* Floating Button */}
-      <a
-        href=""
+      <button
+        onClick={() => setShowForm(true)}
         className="fixed cursor-pointer bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4"
         title="Express Interest"
       >
         <Mail className="w-6 h-6" />
-      </a>
+      </button>
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           {/* Overlay */}
