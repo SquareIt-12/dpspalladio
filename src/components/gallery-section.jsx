@@ -2,33 +2,30 @@ import React, { useState } from "react";
 import { CheckCircle } from "lucide-react";
 
 // Images
-import gall1 from "/images/gall1.jpg";
-import gall2 from "/images/gall2.jpg";
-import gall3 from "/images/gall3.jpg";
-import gall4 from "/images/gall4.jpg";
+import gall1 from "/images/gall1.webp";
+import gall2 from "/images/gall2.webp";
+import gall3 from "/images/gall3.webp";
+import gall4 from "/images/gall4.webp";
 
-import gall5 from "/images/ris1.jpg";
-import gall6 from "/images/ris2.jpg";
-import gall8 from "/images/ris4.jpg";
-import gall9 from "/images/ris5.jpg";
-
-import gall13 from "/images/ris9.jpg";
-import gall14 from "/images/ris10.jpg";
-import gall15 from "/images/ris11.jpg";
 
 export default function GallerySection() {
   const allGalleryImages = [
-    { src: gall1, alt: "Gallery 1" },
-    { src: gall2, alt: "Gallery 2" },
-    { src: gall3, alt: "Gallery 3" },
-    { src: gall4, alt: "Gallery 4" },
-    { src: gall5, alt: "Gallery 5" },
-    { src: gall6, alt: "Gallery 6" },
-    { src: gall8, alt: "Gallery 8" },
-    { src: gall9, alt: "Gallery 9" },
-    { src: gall13, alt: "Gallery 13" },
-    { src: gall14, alt: "Gallery 14" },
-    { src: gall15, alt: "Gallery 15" },
+    {
+      src: gall1,
+      alt: "Gallery 1",
+    },
+    {
+      src: gall2,
+      alt: "Gallery 2",
+    },
+    {
+      src: gall3,
+      alt: "Gallery 3",
+    },
+    {
+      src: gall4,
+      alt: "Gallery 4",
+    },
   ];
 
   const [popupIndex, setPopupIndex] = useState(null);
@@ -68,7 +65,7 @@ export default function GallerySection() {
     <section id="gallery" className="block bg-white py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
+          <div className="inline-flex items-center bg-[#C5A46D] text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
             <CheckCircle className="w-5 h-5 mr-2" />
             Gallery
           </div>
@@ -88,35 +85,34 @@ export default function GallerySection() {
           onClick={closePopup}
         >
           <div
-  className="max-w-4xl mx-auto p-4"
-  onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
->
-  <div className="flex items-center justify-center gap-4">
-    {/* Prev Button */}
-    <button
-      onClick={showPrev}
-      className="bg-white text-black border border-gray-300 px-4 py-2 rounded shadow hover:bg-gray-100"
-    >
-      Prev
-    </button>
+            className="max-w-4xl mx-auto p-4"
+            onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
+          >
+            <div className="flex items-center justify-center gap-4">
+              {/* Prev Button */}
+              <button
+                onClick={showPrev}
+                className="bg-white text-black border border-gray-300 px-4 py-2 rounded shadow hover:bg-gray-100"
+              >
+                Prev
+              </button>
 
-    {/* Image */}
-    <img
-      src={allGalleryImages[popupIndex].src}
-      alt={allGalleryImages[popupIndex].alt}
-      className="w-full max-w-3xl h-auto rounded shadow-xl"
-    />
+              {/* Image */}
+              <img
+                src={allGalleryImages[popupIndex].src}
+                alt={allGalleryImages[popupIndex].alt}
+                className="w-full max-w-3xl h-auto rounded shadow-xl"
+              />
 
-    {/* Next Button */}
-    <button
-      onClick={showNext}
-      className="bg-white text-black border border-gray-300 px-4 py-2 rounded shadow hover:bg-gray-100"
-    >
-      Next
-    </button>
-  </div>
-</div>
-
+              {/* Next Button */}
+              <button
+                onClick={showNext}
+                className="bg-white text-black border border-gray-300 px-4 py-2 rounded shadow hover:bg-gray-100"
+              >
+                Next
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </section>

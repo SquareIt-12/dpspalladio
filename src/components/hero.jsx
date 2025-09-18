@@ -3,21 +3,24 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import Img1 from "/images/banner1.jpg";
-import Img2 from "/images/banner2.jpg";
-import Img3 from "/images/banner7.jpg";
+// import Img1 from "https://www.dpspalladioslucknow.com/assets/img/desk2.webp";
+// import Img2 from "https://www.dpspalladioslucknow.com/assets/img/desk2.webp";
+// import Img3 from "/images/banner7.jpg";
 
 
 const slides = [
   {
-    image: Img3,
+    image: "https://www.dpspalladioslucknow.com/assets/img/desk1.webp",
   },
   {
-    image: Img2,
+    image: "https://www.dpspalladioslucknow.com/assets/img/desk2.webp",
   },
-  {
-    image: Img1,
-  },
+  // {
+  //   image: Img2,
+  // },
+  // {
+  //   image: Img1,
+  // },
 ];
 
 const Banner = () => {

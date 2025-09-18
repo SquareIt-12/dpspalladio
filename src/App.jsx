@@ -12,6 +12,7 @@ import { FaLongArrowAltUp, FaWhatsapp } from "react-icons/fa";
 import Footer from "./components/footer-end";
 import "react-toastify/dist/ReactToastify.css";
 import TestimonialSection from "./components/testimonial";
+import AnimatedFeaturesSection from "./components/features";
 
 function App() {
   const scrollToTop = () => {
@@ -25,14 +26,14 @@ function App() {
       {/* Floating CTA Buttons */}
       <div className="fixed bottom-4 left-4 flex flex-col gap-3 z-50">
         <a
-          href="tel:+918750488908"
+          href="tel:+919235555515"
           className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition duration-300"
         >
           <PhoneCall className="w-5 h-5" />
         </a>
 
         <a
-          href="https://wa.me/918750488908"
+          href="https://wa.me/919235555515"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition duration-300"
@@ -44,7 +45,7 @@ function App() {
       <Header />
       <Banner />
       <OverviewSection />
-      <FeaturesSection />
+      <AnimatedFeaturesSection />
       <FloorPlanSection />
       <GallerySection />
       <TestimonialSection />

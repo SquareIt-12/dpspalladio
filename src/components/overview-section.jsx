@@ -4,13 +4,13 @@ import { CheckCircle } from "lucide-react"; // Step 1: import icon (optional)
 export default function OverviewSection() {
   return (
     <section
-      className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8 scroll-mt-20"
+      className="w-full bg-gray-100 py-12 px-4 sm:px-6 lg:px-8  scroll-mt-20"
       id="overview"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto  py-16 ">
         {/* Overview Heading with background & icon */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
+          <div className="inline-flex items-center bg-[#C5A46D] text-white px-6 py-2 rounded-full text-lg font-semibold shadow-sm">
             <CheckCircle className="w-5 h-5 mr-2" />
             Who We Are?
           </div>
@@ -19,18 +19,17 @@ export default function OverviewSection() {
         {/* Content Text */}
         <div className="max-w-5xl mx-auto">
           <p className="text-black text-base sm:text-md leading-relaxed text-justify  tracking-wide">
-            Mulberry Heights is envisioned as a future-ready residential community that combines modern living with 
-            serene surroundings, offering a perfect blend of comfort, luxury, and sustainability. Designed with long
-            -term livability in mind, the township features thoughtfully planned residential towers surrounded by 
-            expansive green spaces, landscaped gardens, and well-laid internal roads. Over the years, Mulberry 
-            Heights is set to evolve into a self-sufficient micro-township that caters to every aspect of urban
-            lifestyle—be it recreation, fitness, community living, or security. With state-of-the-art amenities 
-            such as a clubhouse, fitness zones, children's play areas, and walking tracks, the project ensures 
-            a holistic living experience for families across generations. The strategic location, likely in a
-            rapidly developing corridor, promises strong connectivity, appreciation in property value, and
-            accessibility to schools, healthcare, and commercial hubs. As urban living continues to grow
-            in complexity, Mulberry Heights offers a long-term vision of a peaceful, well-connected, and
-            vibrant community where residents can thrive for years to come.
+            At Palladio, we believe a home is more than just four walls — it’s
+            where life finds its rhythm, and every detail matters. With a vision
+            rooted in excellence and innovation, we create spaces that blend
+            timeless design, modern comfort, and sustainable living. From
+            thoughtfully crafted layouts to premium amenities, Palladio is built
+            to elevate lifestyles while keeping community and nature at heart.
+            Guided by trust, quality, and customer-first values, we continue to
+            set new benchmarks in contemporary living. Our legacy is defined not
+            only by the spaces we build but by the experiences we create. Every
+            project is a promise of comfort, elegance, and a future where you
+            feel truly at home.
           </p>
         </div>
       </div>

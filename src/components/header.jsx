@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import Logo from "/images/rishita-logo.png";
+import { Menu, X, Phone, Mail } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,7 +7,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const reraHeight = 10; // Approximate height of RERA section
+      const reraHeight = 10;
       setIsScrolled(window.scrollY > reraHeight);
     };
 
@@ -20,7 +19,7 @@ export default function Header() {
   const navigationItems = [
     { name: "Home", href: "#" },
     { name: "Overview", href: "#overview" },
-    { name: "Features", href: "#features" },
+    { name: "Amenities", href: "#features" },
     { name: "Floor Plan", href: "#floorplan" },
     { name: "Gallery", href: "#gallery" },
     // { name: "Plans", href: "#priceplan" },
@@ -31,32 +30,41 @@ export default function Header() {
   return (
     <>
       {/* RERA section - This will scroll with the page */}
-      <div className="bg-orange-500 flex items-center justify-between px-4 py-2 text-xs sm:text-sm text-white">
-        <span className="lg:text-md md:text-md text-sm">
-          Rera no: UPRERAAGT17933
-        </span>
+      <div className=" flex items-center bg-[#C5A46D] justify-between px-4 py-2 text-xs sm:text-sm text-white">
         <a
-          href="tel:+918750488908"
-          className="bg-white hover:bg-white text-orange-500 px-3 py-1 rounded-full flex items-center gap-2"
+          href="mailto:sale@dpspalladio.com"
+          className=" text-white hover:text-black px-3 py-1 rounded-full flex items-center gap-2"
+        >
+          <Mail size={16} />
+          <span className="font-semibold">sale@dpspalladio.com</span>
+        </a>
+
+        <a
+          href="tel:+919235555515"
+          className=" text-white hover:text-black px-3 py-1 rounded-full flex items-center gap-2"
         >
           <Phone size={16} />
-          <span>+91 8750488908</span>
+          <span className="font-bold">+91 9235555515</span>
         </a>
       </div>
 
       {/* Fixed Header - Position changes based on scroll */}
       <header
-        className={`fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100 transition-all duration-300 ${
+        className={`fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-600 transition-all duration-300 ${
           isScrolled ? "top-0" : "top-11"
         }`}
       >
-       {/* <header
+        {/* <header
         className="fixed left-0 right-0 bg-white shadow-sm z-50 border-b border-gray-100 transition-all duration-300 top-0"
       > */}
         <div className="max-w-7xl py-2 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-           
-           <img src={Logo} alt="" className="h-32 w-32" style={{objectFit: 'contain'}} />
+          <div className="flex items-center justify-between h-16 text-white">
+            <img
+              src="/images/logo.svg"
+              alt="Logo"
+              className="h-40 w-40"
+              style={{ objectFit: "contain" }}
+            />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
@@ -67,14 +75,13 @@ export default function Header() {
                   className={`text-sm font-medium focus:text-orange-400 transition-colors duration-200 ${
                     item.active
                       ? "text-orange-500"
-                      : "text-gray-600 hover:text-orange-500"
+                      : "text-black hover:text-orange-500"
                   }`}
                 >
                   {item.name}
                 </a>
               ))}
             </nav>
-
 
             {/* Contact Button - exact match */}
             {/* <div className="hidden lg:flex">
@@ -130,7 +137,6 @@ export default function Header() {
           )}
         </div>
       </header>
-
 
       {/* Spacer div to account for the header height - adjusts based on scroll */}
       {/* <div

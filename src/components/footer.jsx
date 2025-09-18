@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { database } from "../firebase";
+
 import {
   ref,
   push,
@@ -95,112 +96,32 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-gray-900 text-white py-12 scroll-mt-20">
+    <section
+      id="contact"
+      className="bg-sky-100 mt-10  text-black py-12 scroll-mt-20"
+    >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-9">
-          {/* Contact Info */}
-          <div className="lg:w-1/3 w-full ">
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-
-            <a
-              href="tel:+918750488908"
-              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
-            >
-              <Phone className="w-5 h-5 mr-2 text-blue-400" />
-              +91 8750488908
-            </a>
-
-            <a
-              href="mailto:mohanyadav8808@gmail.com"
-              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
-            >
-              <Mail className="w-5 h-5 mr-2 text-blue-400" />
-              mohanyadav8808@gmail.com
-            </a>
-
-            {/* <p className="text-sm flex items-start mb-6">
-              <MapPin className="w-4 h-4 mr-2 mt-1 text-blue-400" />
-              <span>
-                <strong>AMIT KUMAR NISHAD</strong>
-                <br />
-                Ganesham Adept Pvt Ltd,
-                <br />
-                208, Cyber Heights,
-                <br />
-                Vibhuti Khand, Gomti Nagar,
-                <br />
-                Lucknow - 226010
-              </span>
-            </p> */}
-
-            <div className="text-sm p-4">
-              <h4 className="font-semibold mb-3 text-blue-400 flex items-center">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                RERA Numbers
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-1:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ357829
-                  </div>
-                </div>
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-2:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ323529
-                  </div>
-                </div>
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-3:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ308470
-                  </div>
-                </div>
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-4:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ192087
-                  </div>
-                </div>
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-5:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ626431
-                  </div>
-                </div>
-                <div className="bg-gray-700 p-2 rounded">
-                  <div className="text-gray-300 font-medium text-xs mb-1">
-                    Phase-6:
-                  </div>
-                  <div className="text-blue-200 font-mono text-xs">
-                    UPRERAPRJ447396
-                  </div>
-                </div>
-              </div>
-              <div className="bg-blue-900/30 p-3 rounded border border-blue-400/30">
-                <div className="text-blue-300 font-semibold text-xs mb-1">
-                  Agent RERA:
-                </div>
-                <div className="text-blue-100 font-mono text-xs font-semibold">
-                  UPRERAAGT17933
-                </div>
-              </div>
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 gap-y-10">
+          {/* Contact Info / Logo */}
+          <div className="flex flex-col p-4">
+            <div className="logo mb-4">
+              <img
+                src="/images/logo.svg"
+                alt="DPS Palladio"
+                className="h-32 w-32 object-contain"
+              />
             </div>
+            <p className="text-sm leading-relaxed ">
+              Palladio is built to elevate lifestyles while keeping community
+              and nature at heart. Guided by trust, quality, and customer-first
+              values, we continue to set new benchmarks in contemporary living.
+              Our legacy is defined not only by the spaces we build but by the
+              experiences we create.
+            </p>
           </div>
-
           {/* Quick Links */}
-          <div className="lg:w-1/4 flex flex-col lg:items-center w-full">
+          <div className="flex flex-col lg:items-center">
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="flex flex-col gap-y-4">
               <li className="hover:text-orange-500">
@@ -215,14 +136,57 @@ const ContactSection = () => {
               <li className="hover:text-orange-500">
                 <a href="#gallery">Gallery</a>
               </li>
-              {/* <li className="hover:text-orange-500">
-                <a href="#priceplan">Plans</a>
-              </li> */}
             </ul>
+          </div>
+          {/* Contact Us */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+
+            <a
+              href="tel:+919235555515"
+              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
+            >
+              <Phone className="w-5 h-5 mr-2 text-blue-400" />
+              +91 9235555515
+            </a>
+
+            <a
+              href="mailto:sale@dpspalladio.com"
+              className="mb-2 text-md flex items-center hover:text-blue-400 transition-colors"
+            >
+              <Mail className="w-5 h-5 mr-2 text-blue-400" />
+              sales@dpspalladio.com
+            </a>
+
+            <p className="text-sm flex items-start mb-2">
+              <MapPin className="w-4 h-4 mr-2 mt-1 text-blue-400" />
+              <span>
+                <strong>Corporate Office Address</strong>
+                <br />
+                202, 2nd Floor, Cyber Heights,
+                <br />
+                Vibhuti Khand, Gomti Nagar,
+                <br />
+                Lucknow - 226010
+              </span>
+            </p>
+
+            <p className="text-sm flex items-start mb-6">
+              <MapPin className="w-4 h-4 mr-2 mt-1 text-blue-400" />
+              <span>
+                <strong>Site Address</strong>
+                <br />
+                GH-4, Pintail Park City,
+                <br />
+                Sultanpur Road, Opp Amul Dairy, Ahmamau,
+                <br />
+                Lucknow - 226010
+              </span>
+            </p>
           </div>
 
           {/* Contact Form */}
-          <div className="lg:w-1/3 w-full">
+          <div>
             <h3 className="text-xl font-bold mb-4">Contact Form</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -279,10 +243,10 @@ const ContactSection = () => {
                   placeholder="Email"
                 />
               </div>
-              <div>
+              <div className="flex justify-center lg:justify-start">
                 <button
                   type="submit"
-                  className="bg-blue-600 cursor-pointer text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300 float-right"
+                  className="bg-blue-600 cursor-pointer text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300"
                 >
                   Submit
                 </button>
@@ -291,6 +255,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+
       <ToastContainer
         position="top-right"
         autoClose={3000}
