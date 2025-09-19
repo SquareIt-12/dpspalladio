@@ -128,7 +128,7 @@ const ContactSection = () => {
                 <a href="#overview">Overview</a>
               </li>
               <li className="hover:text-orange-500">
-                <a href="#features">Features</a>
+                <a href="#features">Amenities</a>
               </li>
               <li className="hover:text-orange-500">
                 <a href="#floorplan">Floor Plan</a>

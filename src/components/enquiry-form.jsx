@@ -1,13 +1,9 @@
-
-
 import React, { useState } from "react";
 import { Mail, X } from "lucide-react";
 import { database } from "../firebase"; // ✅ only database from here
-import {
-  ref,
-  push,
-  get,
-} from "firebase/database"; // ✅ helpers from firebase
+import { ref, push, get } from "firebase/database"; // ✅ helpers from firebase
+import { logToGoogleSheet } from "./logToGoogleSheet";
+
 import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -78,6 +74,8 @@ export default function EnquiryFormPopup() {
       // ✅ Save if no duplicate
       await push(enquiriesRef, entry);
       await push(ref(database, "allEnquiries"), entry);
+
+      await logToGoogleSheet(entry);
 
       toast.success("Form submitted successfully!");
       setForm({ name: "", email: "", mobile: "" });

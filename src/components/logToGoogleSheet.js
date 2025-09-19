@@ -1,6 +1,6 @@
 export const logToGoogleSheet = async (data) => {
   const sheetURL =
-    "https://script.google.com/macros/s/AKfycbxY8vgBQyds6j_CoRHjhqAB3givsZx9HQNr_brW3LnsOFsChhq07dGC2P-32WXcsV5X/exec";
+    "https://script.google.com/macros/s/AKfycbz7G5h8OLn2IFlIS1SMulQIBbvhwZbKgD_LCQAaRv_hK2XRirrLds-ERuXcbi8Eh4AMuA/exec";
 
   try {
     await fetch(sheetURL, {
